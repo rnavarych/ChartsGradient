@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Charts
+import RNChartsGradient
 #if canImport(UIKit)
     import UIKit
 #endif
@@ -15,7 +15,7 @@ import Charts
 public class XYMarkerView: BalloonMarker {
     public var xAxisValueFormatter: IAxisValueFormatter
     fileprivate var yFormatter = NumberFormatter()
-    
+
     public init(color: UIColor, font: UIFont, textColor: UIColor, insets: UIEdgeInsets,
                 xAxisValueFormatter: IAxisValueFormatter) {
         self.xAxisValueFormatter = xAxisValueFormatter
@@ -23,7 +23,7 @@ public class XYMarkerView: BalloonMarker {
         yFormatter.maximumFractionDigits = 1
         super.init(color: color, font: font, textColor: textColor, insets: insets)
     }
-    
+
     public override func refreshContent(entry: ChartDataEntry, highlight: Highlight) {
         let string = "x: "
             + xAxisValueFormatter.stringForValue(entry.x, axis: XAxis())
@@ -31,5 +31,5 @@ public class XYMarkerView: BalloonMarker {
             + yFormatter.string(from: NSNumber(floatLiteral: entry.y))!
         setLabel(string)
     }
-    
+
 }

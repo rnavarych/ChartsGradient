@@ -10,14 +10,14 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous) | [Next](@next)
  ****
  */
 
 //: # Pie Chart
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 
 

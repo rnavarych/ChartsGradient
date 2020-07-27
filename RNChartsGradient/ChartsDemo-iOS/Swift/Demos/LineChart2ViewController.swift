@@ -9,7 +9,7 @@
 #if canImport(UIKit)
     import UIKit
 #endif
-import Charts
+import RNChartsGradient
 
 class LineChart2ViewController: DemoBaseViewController {
 
@@ -18,10 +18,10 @@ class LineChart2ViewController: DemoBaseViewController {
     @IBOutlet var sliderY: UISlider!
     @IBOutlet var sliderTextX: UITextField!
     @IBOutlet var sliderTextY: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         self.title = "Line Chart 2"
         self.options = [.toggleValues,
@@ -38,14 +38,14 @@ class LineChart2ViewController: DemoBaseViewController {
                         .togglePinchZoom,
                         .toggleAutoScaleMinMax,
                         .toggleData]
-        
+
         chartView.delegate = self
-        
+
         chartView.chartDescription?.enabled = false
         chartView.dragEnabled = true
         chartView.setScaleEnabled(true)
         chartView.pinchZoomEnabled = true
-        
+
         let l = chartView.legend
         l.form = .line
         l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
@@ -54,41 +54,41 @@ class LineChart2ViewController: DemoBaseViewController {
         l.verticalAlignment = .bottom
         l.orientation = .horizontal
         l.drawInside = false
-        
+
         let xAxis = chartView.xAxis
         xAxis.labelFont = .systemFont(ofSize: 11)
         xAxis.labelTextColor = .white
         xAxis.drawAxisLineEnabled = false
-        
+
         let leftAxis = chartView.leftAxis
         leftAxis.labelTextColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
         leftAxis.axisMaximum = 200
         leftAxis.axisMinimum = 0
         leftAxis.drawGridLinesEnabled = true
         leftAxis.granularityEnabled = true
-        
+
         let rightAxis = chartView.rightAxis
         rightAxis.labelTextColor = .red
         rightAxis.axisMaximum = 900
         rightAxis.axisMinimum = -200
         rightAxis.granularityEnabled = false
-        
+
         sliderX.value = 20
         sliderY.value = 30
         slidersValueChanged(nil)
-        
+
         chartView.animate(xAxisDuration: 2.5)
     }
-    
+
     override func updateChartData() {
         if self.shouldHideData {
             chartView.data = nil
             return
         }
-        
+
         self.setDataCount(Int(sliderX.value + 1), range: UInt32(sliderY.value))
     }
-    
+
     func setDataCount(_ count: Int, range: UInt32) {
         let yVals1 = (0..<count).map { (i) -> ChartDataEntry in
             let mult = range / 2
@@ -114,7 +114,7 @@ class LineChart2ViewController: DemoBaseViewController {
         set1.fillColor = UIColor(red: 51/255, green: 181/255, blue: 229/255, alpha: 1)
         set1.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
         set1.drawCircleHoleEnabled = false
-        
+
         let set2 = LineChartDataSet(entries: yVals2, label: "DataSet 2")
         set2.axisDependency = .right
         set2.setColor(.red)
@@ -136,14 +136,14 @@ class LineChart2ViewController: DemoBaseViewController {
         set3.fillColor = UIColor.yellow.withAlphaComponent(200/255)
         set3.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
         set3.drawCircleHoleEnabled = false
-        
+
         let data = LineChartData(dataSets: [set1, set2, set3])
         data.setValueTextColor(.white)
         data.setValueFont(.systemFont(ofSize: 9))
-        
+
         chartView.data = data
     }
-    
+
     override func optionTapped(_ option: Option) {
         switch option {
         case .toggleFilled:
@@ -151,40 +151,40 @@ class LineChart2ViewController: DemoBaseViewController {
                 set.drawFilledEnabled = !set.drawFilledEnabled
             }
             chartView.setNeedsDisplay()
-            
+
         case .toggleCircles:
             for set in chartView.data!.dataSets as! [LineChartDataSet] {
                 set.drawCirclesEnabled = !set.drawCirclesEnabled
             }
             chartView.setNeedsDisplay()
-            
+
         case .toggleCubic:
             for set in chartView.data!.dataSets as! [LineChartDataSet] {
                 set.mode = (set.mode == .cubicBezier) ? .linear : .cubicBezier
             }
             chartView.setNeedsDisplay()
-            
+
         case .toggleStepped:
             for set in chartView.data!.dataSets as! [LineChartDataSet] {
                 set.mode = (set.mode == .stepped) ? .linear : .stepped
             }
             chartView.setNeedsDisplay()
-            
+
         case .toggleHorizontalCubic:
             for set in chartView.data!.dataSets as! [LineChartDataSet] {
                 set.mode = (set.mode == .cubicBezier) ? .horizontalBezier : .cubicBezier
             }
             chartView.setNeedsDisplay()
-            
+
         default:
             super.handleOption(option, forChartView: chartView)
         }
     }
-    
+
     @IBAction func slidersValueChanged(_ sender: Any?) {
         sliderTextX.text = "\(Int(sliderX.value))"
         sliderTextY.text = "\(Int(sliderY.value))"
-        
+
         self.updateChartData()
     }
 //}
@@ -192,7 +192,7 @@ class LineChart2ViewController: DemoBaseViewController {
 //extension LineChart2ViewController {
     override func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         super.chartValueSelected(chartView, entry: entry, highlight: highlight)
-        
+
         self.chartView.centerViewToAnimated(xValue: entry.x, yValue: entry.y,
                                             axis: self.chartView.data!.getDataSetByIndex(highlight.dataSetIndex).axisDependency,
                                             duration: 1)

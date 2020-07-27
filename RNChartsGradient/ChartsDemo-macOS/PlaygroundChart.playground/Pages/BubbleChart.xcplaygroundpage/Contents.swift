@@ -10,14 +10,14 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous)
  ****
  */
 
 //: # Bubble Chart
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 
 let ITEM_COUNT  = 20
@@ -75,7 +75,7 @@ PlaygroundPage.current.liveView = chartView
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous)
  ****
  */

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Charts
+@testable import RNChartsGradient
 
 class EquatableTests: XCTestCase {
     func testChartDataEntryEquality() {

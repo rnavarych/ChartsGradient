@@ -10,14 +10,14 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous) | [Next](@next)
  ****
  */
 
 //: # Stacked Bar
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 
 

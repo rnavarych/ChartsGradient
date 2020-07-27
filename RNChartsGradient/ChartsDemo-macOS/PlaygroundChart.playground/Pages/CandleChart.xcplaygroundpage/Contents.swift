@@ -10,14 +10,14 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous) | [Next](@next)
  ****
  */
 
 //: # Candle Chart
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 
 
@@ -68,7 +68,7 @@ for i in 0..<ITEM_COUNT
     let open: Float = randomFloatBetween(from: 1, to: 7)
     let close: Float = randomFloatBetween(from: 1, to: 7)
     let even: Bool = i % 2 == 0
-    
+
     entries.append(CandleChartDataEntry(x: Double(i), shadowH: Double(val + high), shadowL: Double(val - low), open: Double(even ? val + open : val - open), close: Double(even ? val - close : val + close)))
     }
 //: ### CandleChartDataSet

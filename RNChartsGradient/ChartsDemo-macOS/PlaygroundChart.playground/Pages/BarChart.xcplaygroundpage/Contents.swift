@@ -11,7 +11,7 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous) | [Next](@next)
  ****
  */
@@ -19,7 +19,7 @@
 //: # Bar Chart
 //#-hidden-code
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 //#-end-hidden-code
 

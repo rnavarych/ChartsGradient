@@ -10,14 +10,14 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous) | [Next](@next)
  ****
  */
 
 //: # Radar Chart
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 
 let r = CGRect(x: 0, y: 0, width: 600, height: 600)

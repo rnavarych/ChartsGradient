@@ -10,14 +10,14 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous) | [Next](@next)
  ****
  */
 
 //: # Combined Chart
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 
 
@@ -61,7 +61,7 @@ func generateBarData() -> BarChartData
 //: ### BarChartDataEntry
     var entries1 = [BarChartDataEntry]()
     var entries2 = [BarChartDataEntry]()
-    
+
     for _ in 0..<ITEM_COUNT
     {
         entries1.append(BarChartDataEntry(x: 0.0, y: (Double(arc4random_uniform(25) + 25))))
@@ -76,7 +76,7 @@ func generateBarData() -> BarChartData
     set1.valueTextColor = #colorLiteral(red: 0.235294117647059, green: 0.862745098039216, blue: 0.305882352941176, alpha: 1.0)
     set1.valueFont      = NSUIFont.systemFont(ofSize: CGFloat(10.0))
     set1.axisDependency = .left
-    
+
     let set2            = BarChartDataSet(values: entries2, label: "Bar 2")
     set2.stackLabels    = ["Stack 1", "Stack 2"]
     set2.colors         = [#colorLiteral(red: 0.23921568627451, green: 0.647058823529412, blue: 1.0, alpha: 1.0),  #colorLiteral(red: 0.090196078431373, green: 0.772549019607843, blue: 1.0, alpha: 1.0)]
@@ -87,8 +87,8 @@ func generateBarData() -> BarChartData
     let groupSpace = 0.06
     let barSpace = 0.02
     let barWidth = 0.45
-    
-/*: 
+
+/*:
 - Note:  x2 dataset
 (0.45 + 0.02) * 2 + 0.06 = 1.00 -> interval per "group"
  */

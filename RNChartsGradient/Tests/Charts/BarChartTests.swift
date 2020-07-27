@@ -1,23 +1,23 @@
 import XCTest
 import FBSnapshotTestCase
-@testable import Charts
+@testable import RNChartsGradient
 
 class BarChartTests: FBSnapshotTestCase
 {
     override func setUp()
     {
         super.setUp()
-        
+
         // Set to `true` to re-capture all snapshots
         self.recordMode = false
     }
-    
+
     override func tearDown()
     {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
+
     //MARK: Prepare
     func setupCustomValuesDataEntries(values: [Double]) -> [ChartDataEntry]
     {
@@ -95,13 +95,13 @@ class BarChartTests: FBSnapshotTestCase
     {
         let data = BarChartData(dataSets: dataSets)
         data.barWidth = 0.85
-        
+
         let chart = BarChartView(frame: CGRect(x: 0, y: 0, width: 480, height: 350))
         chart.backgroundColor = NSUIColor.clear
         chart.data = data
         return chart
     }
-    
+
     //MARK: Start Test
     func testDefaultValues()
     {
@@ -299,7 +299,7 @@ class BarChartTests: FBSnapshotTestCase
         chart.notifyDataSetChanged()
         ChartsSnapshotVerifyView(chart, identifier: Snapshot.identifier(UIScreen.main.bounds.size), overallTolerance: Snapshot.tolerance)
     }
-    
+
     func testHideLeftAxis()
     {
         let dataEntries = setupDefaultValuesDataEntries()
@@ -309,7 +309,7 @@ class BarChartTests: FBSnapshotTestCase
         chart.notifyDataSetChanged()
         ChartsSnapshotVerifyView(chart, identifier: Snapshot.identifier(UIScreen.main.bounds.size), overallTolerance: Snapshot.tolerance)
     }
-    
+
     func testHideRightAxis()
     {
         let dataEntries = setupDefaultValuesDataEntries()
@@ -382,7 +382,7 @@ class BarChartTests: FBSnapshotTestCase
         chart.notifyDataSetChanged()
         ChartsSnapshotVerifyView(chart, identifier: Snapshot.identifier(UIScreen.main.bounds.size), overallTolerance: Snapshot.tolerance)
     }
-    
+
     func testHideHorizontalGridlines()
     {
         let dataEntries = setupDefaultValuesDataEntries()
@@ -393,7 +393,7 @@ class BarChartTests: FBSnapshotTestCase
         chart.notifyDataSetChanged()
         ChartsSnapshotVerifyView(chart, identifier: Snapshot.identifier(UIScreen.main.bounds.size), overallTolerance: Snapshot.tolerance)
     }
-    
+
     func testHideVerticalGridlines()
     {
         let dataEntries = setupDefaultValuesDataEntries()
@@ -403,7 +403,7 @@ class BarChartTests: FBSnapshotTestCase
         chart.notifyDataSetChanged()
         ChartsSnapshotVerifyView(chart, identifier: Snapshot.identifier(UIScreen.main.bounds.size), overallTolerance: Snapshot.tolerance)
     }
-    
+
     func testDrawIcons()
     {
         let dataEntries = setupDefaultValuesDataEntries()

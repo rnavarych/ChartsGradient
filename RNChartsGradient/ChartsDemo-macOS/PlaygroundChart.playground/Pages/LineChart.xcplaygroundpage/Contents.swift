@@ -10,14 +10,14 @@
 /*:
  ****
  [Menu](Menu)
- 
+
  [Previous](@previous) | [Next](@next)
  ****
  */
 
 //: # Line Chart
 import Cocoa
-import Charts
+import RNChartsGradient
 import PlaygroundSupport
 
 
