@@ -828,7 +828,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     /// - Returns: The bitmap that represents the chart.
     @objc open func getChartImage(transparent: Bool) -> NSUIImage?
     {
-        NSUIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque || !transparent, NSUIScreen.nsuiMain?.nsuiScale ?? 1.0)
+       
         
         guard let context = NSUIGraphicsGetCurrentContext()
             else { return nil }
