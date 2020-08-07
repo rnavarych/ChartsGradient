@@ -81,9 +81,9 @@ open class LineChartRenderer: LineRadarRenderer
 
         case .horizontalBezier:
             drawHorizontalBezier(context: context, dataSet: dataSet)
+            context.restoreGState()
         }
 
-        context.restoreGState()
     }
 
     private func drawLine(
